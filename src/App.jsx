@@ -2,7 +2,7 @@ import React from "react";
 
 import "normalize.css";
 import "./globalStyles.css";
-import { useMediaQuery, Box } from "@chakra-ui/react";
+import { useMediaQuery, Box, Divider } from "@chakra-ui/react";
 import { Header } from "Layouts";
 import { MobileNavBar } from "Components";
 

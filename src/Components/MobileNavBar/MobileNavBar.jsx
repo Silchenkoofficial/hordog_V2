@@ -12,6 +12,7 @@ import React from "react";
 import { FiHome, FiShoppingBag, FiHeart } from "react-icons/fi";
 import { RxStack } from "react-icons/rx";
 import { CgProfile } from "react-icons/cg";
+import Badge from "Components/Badge/Badge";
 
 const tabs = [
   {

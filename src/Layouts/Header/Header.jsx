@@ -2,24 +2,25 @@ import React from "react";
 
 import {
   Box,
-  Button,
-  Image,
   Container,
   HStack,
-  Text,
   useMediaQuery,
-  Heading,
-  Flex,
   IconButton,
+  useDisclosure,
 } from "@chakra-ui/react";
 
 import { Logo, Search } from "Components";
+import { Drawer } from "Widgets";
+
 import { BiMenu } from "react-icons/bi";
-import { CgProfile } from "react-icons/cg";
 import { FiHeart, FiShoppingBag } from "react-icons/fi";
+import { HiOutlineMenuAlt2 } from "react-icons/hi";
+// import { Drawer } from "Widgets"
 
 const Header = () => {
   const [isLargerThen768] = useMediaQuery("(min-width: 768px)");
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const btnRef = React.useRef();
 
   return (
     <Box bg="primary.main.500" py={6}>
@@ -30,13 +31,18 @@ const Header = () => {
             <Search />
           </Box>
           <Box ml={4}>
-            {isLargerThen768 && (
-              <HStack>
-                <IconButton icon={<FiHeart size={24} />} />
-                <IconButton icon={<FiShoppingBag size={24} />} />
-                <IconButton icon={<CgProfile size={24} />} />
-              </HStack>
-            )}
+            <HStack>
+              <IconButton
+                onClick={onOpen}
+                icon={<HiOutlineMenuAlt2 size={24} />}
+              />
+              <Drawer
+                btnRef={btnRef}
+                isOpen={isOpen}
+                onOpen={onOpen}
+                onClose={onClose}
+              />
+            </HStack>
           </Box>
         </HStack>
       </Container>
